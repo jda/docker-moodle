@@ -40,7 +40,7 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mysqli';      // 'pgsql', 'mariadb', 'mysqli', 'mssql', 'sqlsrv' or 'oci'
 $CFG->dblibrary = 'native';     // 'native' only at the moment
-$CFG->dbhost    = getenv('DB_PORT_3306_TCP_ADDR');  // eg 'localhost' or 'db.isp.com' or IP
+$CFG->dbhost    = !empty(getenv('DB_HOST')) ? getenv('DB_HOST') : 'DB';  // eg 'localhost' or 'db.isp.com' or IP
 $CFG->dbname    = getenv('DB_ENV_MYSQL_DATABASE');     // database name, eg moodle
 $CFG->dbuser    = getenv('DB_ENV_MYSQL_USER');   // your database username
 $CFG->dbpass    = getenv('DB_ENV_MYSQL_PASSWORD');   // your database password
@@ -56,7 +56,7 @@ $CFG->dboptions = array(
                                 //  (please note mysql is always using socket
                                 //  if dbhost is 'localhost' - if you need
                                 //  local port connection use '127.0.0.1')
-    'dbport'    => getenv('DB_PORT_3306_TCP_PORT'),          // the TCP port number to use when connecting
+    'dbport'    => !empty(getenv('DB_PORT')) ? getenv('DB_PORT') : 3306,          // the TCP port number to use when connecting
                                 //  to the server. keep empty string for the
                                 //  default port
 );
