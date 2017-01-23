@@ -1,6 +1,7 @@
 # Dockerfile for moodle instance. more dockerish version of https://github.com/sergiogomez/docker-moodle
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Jon Auer <jda@coldshore.com>
+MAINTAINER Daniel Tomé Fernández <danieltomefer@gmail.com>
 
 VOLUME ["/var/moodledata"]
 EXPOSE 80 443
@@ -24,9 +25,9 @@ ENV MOODLE_URL http://192.168.59.103
 ADD ./foreground.sh /etc/apache2/foreground.sh
 
 RUN apt-get update && \
-	apt-get -y install mysql-client pwgen python-setuptools curl git unzip apache2 php5 \
-		php5-gd libapache2-mod-php5 postfix wget supervisor php5-pgsql curl libcurl3 \
-		libcurl3-dev php5-curl php5-xmlrpc php5-intl php5-mysql git-core && \
+	apt-get -y install mysql-client pwgen python-setuptools curl git unzip apache2 php7.0 \
+		php7.0-gd libapache2-mod-php7.0 postfix wget supervisor php7.0-pgsql curl libcurl3 \
+		libcurl3-dev php7.0-curl php7.0-xmlrpc php7.0-intl php7.0-mysql git-core && \
 	cd /tmp && \
 	git clone -b MOODLE_29_STABLE git://git.moodle.org/moodle.git --depth=1 && \
 	mv /tmp/moodle/* /var/www/html/ && \
