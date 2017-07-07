@@ -59,6 +59,17 @@ $CFG->dboptions = array(
     'dbport'    => getenv('DB_PORT_3306_TCP_PORT'),          // the TCP port number to use when connecting
                                 //  to the server. keep empty string for the
                                 //  default port
+    'dbhandlesoptions' => false,// On PostgreSQL poolers like pgbouncer don't
+                                // support advanced options on connection.
+                                // If you set those in the database then
+                                // the advanced settings will not be sent.
+    'dbcollation' => 'utf8mb4_unicode_ci', // MySQL has partial and full UTF-8
+                                // support. If you wish to use partial UTF-8
+                                // (three bytes) then set this option to
+                                // 'utf8_unicode_ci', otherwise this option
+                                // can be removed for MySQL (by default it will
+                                // use 'utf8mb4_unicode_ci'. This option should
+                                // be removed for all other databases.
 );
 
 
