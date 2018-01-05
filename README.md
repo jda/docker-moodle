@@ -69,6 +69,6 @@ The following aren't handled, considered, or need work:
 
 ## Credits
 
-This is a fork of [Jon Auer's](https://github.com/jda/docker-moodle) Dockerfile.
+This is a fork of [Jade Auer's](https://github.com/jda/docker-moodle) Dockerfile.
 This is a reductionist take on [sergiogomez](https://github.com/sergiogomez/)'s docker-moodle Dockerfile.
 
